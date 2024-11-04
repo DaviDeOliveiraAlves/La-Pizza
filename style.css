@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+:root {
+  --primary-color: #ffbd48;
+  --secondary-color: #2e2e2e;
+  --third-color: #fefbf4; /* Mudado para o fundo desejado */
+  --fourth-color: #ffffff;
+}
+
+body {
+  background-color: var(--third-color);
+  color: var(--secondary-color);
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: url(assets/bg.png) no-repeat center;
+  background-size: cover;
+  height: 350px; /* Aumentar a altura do header */
+}
+
+main {
+  padding: 2rem;
+  background: url(assets/bg-pizza.png) no-repeat center center;
+  background-size: cover;
+  min-height: 100vh; /* Mantém a altura mínima para mobile */
+}
+
+.pizzas {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr; /* Uma coluna por padrão */
+  gap: 1.5rem; /* Espaçamento entre itens */
+  padding: 1rem; /* Padding em volta do grid */
+}
+
+.pizza-item {
+  background: var(--third-color);
+  border: 1px solid transparent; /* Bordas transparentes */
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  overflow: hidden;
+  position: relative; /* Para posicionar o ícone corretamente */
+}
+
+.pizza-icon {
+  position: absolute; /* Mantenha o ícone posicionado */
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+}
+
+.pizza-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.sobre {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 1.5rem; /* Aumenta o padding da seção Sobre */
+  background: var(--third-color);
+}
+
+.sobre-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  flex-direction: column; /* Alinhando imagem acima do texto na versão mobile */
+}
+
+.sobre figure {
+  flex: 1;
+  margin-bottom: 1rem; /* Adiciona espaço abaixo da imagem */
+}
+
+.sobre-texto {
+  flex: 1;
+  text-align: center; /* Centraliza o texto */
+}
+
+.mesas {
+  max-width: 327px;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.btn {
+  background-color: var(--primary-color);
+  border: none;
+  color: var(--third-color);
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #e1a236;
+}
+
+/* Responsividade */
+@media (min-width: 768px) {
+  header {
+    height: 400px; /* Aumentar a altura do header para tablet */
+  }
+
+  .pizzas {
+    grid-template-columns: repeat(2, 1fr); /* Duas colunas em telas maiores */
+  }
+
+  .sobre {
+    flex-direction: column; /* Organiza a área "Sobre" em coluna */
+    align-items: center; /* Centraliza o conteúdo */
+  }
+
+  .sobre-content {
+    flex-direction: column; /* Coloca a imagem acima do texto */
+    align-items: center; /* Centraliza o texto */
+    text-align: center; /* Centraliza o texto */
+  }
+
+  .sobre figure {
+    margin-right: 0; /* Remove margem em telas menores */
+    margin-bottom: 1rem; /* Adiciona espaço abaixo da imagem */
+  }
+}
+
+@media (min-width: 1024px) {
+  main {
+    padding: 2rem; /* Ajusta padding para desktop */
+    height: auto; /* Ajusta a altura da main para não sair da tela */
+  }
+
+  .pizzas {
+    grid-template-columns: repeat(4, 1fr); /* Quatro colunas em telas grandes */
+  }
+
+  .sobre-content {
+    flex-direction: row; /* Mantém a imagem e texto lado a lado em telas grandes */
+  }
+}
