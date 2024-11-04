@@ -24,18 +24,16 @@ header {
   padding: 2rem;
   background: url(assets/bg.png) no-repeat center;
   background-size: cover;
-  height: 350px; /* Aumentar a altura do header */
 }
 
 main {
   padding: 2rem;
   background: url(assets/bg-pizza.png) no-repeat center center;
   background-size: cover;
-  min-height: 100vh; /* Mantém a altura mínima para mobile */
+  min-height: 100vh;
 }
 
 .pizzas {
-  position: relative;
   display: grid;
   grid-template-columns: 1fr; /* Uma coluna por padrão */
   gap: 1.5rem; /* Espaçamento entre itens */
@@ -43,57 +41,55 @@ main {
 }
 
 .pizza-item {
-  background: var(--third-color);
-  border: 1px solid transparent; /* Bordas transparentes */
+  background: var(--third-color); /* Mudado para third color */
+  border: 1px solid var(--secondary-color);
   border-radius: 8px;
   padding: 1rem;
   text-align: center;
-  overflow: hidden;
-  position: relative; /* Para posicionar o ícone corretamente */
-}
-
-.pizza-icon {
-  position: absolute; /* Mantenha o ícone posicionado */
-  top: 1rem;
-  right: 1rem;
-  z-index: 10;
+  overflow: hidden; /* Garante que a imagem não saia do contêiner */
 }
 
 .pizza-item img {
   max-width: 100%;
   height: auto;
   border-radius: 6px;
+  margin-top: -10px; /* Ajuste para aumentar a altura levemente para fora do contêiner */
+}
+
+.pizza-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-top: -10px; /* Aumenta levemente a altura para fora do contêiner */
 }
 
 h1 {
-  text-align: center;
-  margin-bottom: 1.5rem;
+  text-align: center; /* Centraliza a frase "Mais Vendidas" */
+  margin-bottom: 1.5rem; /* Espaçamento abaixo do título */
 }
 
 .sobre {
   display: flex;
-  align-items: center;
+  align-items: center; /* Alinha verticalmente */
   margin-top: 2rem;
-  padding: 1.5rem; /* Aumenta o padding da seção Sobre */
-  background: var(--third-color);
+  padding: 1rem;
+  background: var(--third-color); /* Mudado para third color */
 }
 
 .sobre-content {
   display: flex;
-  align-items: center;
-  width: 100%;
-  max-width: 1200px;
-  flex-direction: column; /* Alinhando imagem acima do texto na versão mobile */
+  align-items: center; /* Alinha verticalmente */
+  width: 100%; /* Garante que ocupe toda a largura */
+  max-width: 1200px; /* Limita a largura máxima */
 }
 
 .sobre figure {
-  flex: 1;
-  margin-bottom: 1rem; /* Adiciona espaço abaixo da imagem */
+  flex: 1; /* Faz a imagem ocupar 50% do espaço */
+  margin-right: 2rem; /* Espaçamento entre a imagem e o texto */
 }
 
 .sobre-texto {
-  flex: 1;
-  text-align: center; /* Centraliza o texto */
+  flex: 1; /* Faz o texto ocupar 50% do espaço */
 }
 
 .mesas {
@@ -110,52 +106,44 @@ h1 {
   border-radius: 5px;
   cursor: pointer;
   margin-top: 1rem;
-  transition: background-color 0.3s ease;
 }
 
 .btn:hover,
 .btn:focus {
-  background-color: #e1a236;
+  background-color: #e1a236; /* Cor um pouco mais escura no hover */
 }
 
 /* Responsividade */
 @media (min-width: 768px) {
-  header {
-    height: 400px; /* Aumentar a altura do header para tablet */
-  }
-
   .pizzas {
     grid-template-columns: repeat(2, 1fr); /* Duas colunas em telas maiores */
   }
+}
 
+@media (min-width: 1024px) {
+  .pizzas {
+    grid-template-columns: repeat(4, 1fr); /* Quatro colunas em telas grandes */
+  }
+
+  .sobre-content {
+    flex-direction: row; /* Coloca a imagem e texto lado a lado em telas grandes */
+  }
+}
+
+/* Estilos para mobile e tablet */
+@media (max-width: 768px) {
   .sobre {
     flex-direction: column; /* Organiza a área "Sobre" em coluna */
     align-items: center; /* Centraliza o conteúdo */
   }
 
   .sobre-content {
-    flex-direction: column; /* Coloca a imagem acima do texto */
-    align-items: center; /* Centraliza o texto */
+    align-items: flex-start; /* Alinha o texto à esquerda */
     text-align: center; /* Centraliza o texto */
   }
 
   .sobre figure {
     margin-right: 0; /* Remove margem em telas menores */
     margin-bottom: 1rem; /* Adiciona espaço abaixo da imagem */
-  }
-}
-
-@media (min-width: 1024px) {
-  main {
-    padding: 2rem; /* Ajusta padding para desktop */
-    height: auto; /* Ajusta a altura da main para não sair da tela */
-  }
-
-  .pizzas {
-    grid-template-columns: repeat(4, 1fr); /* Quatro colunas em telas grandes */
-  }
-
-  .sobre-content {
-    flex-direction: row; /* Mantém a imagem e texto lado a lado em telas grandes */
   }
 }
