@@ -44,7 +44,7 @@ main {
 
 .pizza-item {
   background: var(--third-color);
-  border: 1px solid transparent; /* Bordas transparentes */
+  border: 2px solid #fff5de; /* Bordas mais grossas com a cor #FFF5DE */
   border-radius: 8px;
   padding: 1rem;
   text-align: center;
