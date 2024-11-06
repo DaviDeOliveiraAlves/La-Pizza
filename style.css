@@ -44,7 +44,7 @@ main {
 }
 
 .pizza-item {
-  background: var(--third-color); /* Cor de fundo normal para o primeiro card */
+  background: var(--third-color);
   border: 4px solid #fff5de; /* Aumentada a borda para 4px */
   border-radius: 8px;
   padding: 1rem;
@@ -53,16 +53,23 @@ main {
   position: relative; /* Para posicionar o ícone corretamente */
 }
 
-/* Opacidade do primeiro card de pizza mantida em 50% apenas na versão mobile */
+/* Opacidade do fundo do primeiro card de pizza mantida em 50% apenas na versão mobile */
 .pizzas .pizza-item:first-child {
-  background-color: #fefbf480; /* Fundo normal */
+  background-color: rgba(
+    254,
+    251,
+    244,
+    0.5
+  ); /* Fundo normal com 50% de opacidade */
   border: 4px solid #fff5de; /* Bordas normais */
 }
 
-/* Removendo a opacidade do primeiro card nas versões tablet e desktop */
+/* Removendo a opacidade do fundo do primeiro card nas versões tablet e desktop */
 @media (min-width: 768px) {
   .pizzas .pizza-item:first-child {
-    opacity: 1; /* Opacidade normal para tablet e desktop */
+    background-color: var(
+      --third-color
+    ); /* Fundo normal (sem opacidade) para tablet e desktop */
   }
 }
 
